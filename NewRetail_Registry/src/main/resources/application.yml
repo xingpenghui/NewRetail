@@ -1,0 +1,11 @@
+server:
+  port: 8761
+eureka:
+  instance:
+    prefer-ip-address: true #启用Ip
+    ip-address: 10.8.157.47
+  client:
+    registerWithEureka: false  #当前项目不注册服务
+    fetchRegistry: false  #当前项目不需要发现服务
+    serviceUrl:
+      defaultZone: http://${eureka.instance.ip-address}:${server.port}/eureka/
