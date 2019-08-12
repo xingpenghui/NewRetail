@@ -3,5 +3,17 @@ Redis:
 端口：6379
 密码：qfjava
 
+Elasticsearch：
+主机：39.105.189.141
+端口号：9100/9200/9300
+
+RabbitMQ:
+主机：39.105.189.141
+端口号：15672
+账号：guest
+密码：guest
+
 
 源码地址：
+https://github.com/xingpenghui/NewRetail
+
