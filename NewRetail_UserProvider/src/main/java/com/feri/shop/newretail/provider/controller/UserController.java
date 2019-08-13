@@ -4,10 +4,7 @@ import com.feri.shop.newretail.common.vo.R;
 import com.feri.shop.newretail.dto.UserDto;
 import com.feri.shop.newretail.provider.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @program: NewRetail
@@ -24,7 +21,7 @@ public class UserController {
         return userService.save(userDto);
     }
     @GetMapping("nr/provider/user/detail.do")
-    public R detail(String phone){
+    public R detail(@RequestParam("phone")String phone){
         return userService.queryPhone(phone);
     }
 }

@@ -25,10 +25,10 @@ hystrix:
         isolation:
           thread:
             timeoutInMillisecond: 10000 # 熔断超时时长：10000ms
-#  routes:
-#    service1903:
-#      path: /hello/**
-#      service-id: RibbonConsumer
+  routes:
+    servicenr:
+      path: /api/**
+      service-id: NewRetailApi
 #    servicegoods:
 #      path: /goods/**
 #      service-id: GoodsConsumer
@@ -36,6 +36,3 @@ hystrix:
       host:
           connect-timeout-millis: 10000
           socket-timeout-millis: 10000
-
-
-

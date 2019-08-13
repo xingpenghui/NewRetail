@@ -1,15 +1,10 @@
 spring:
   profiles:
     active: dev
-
+  application:
+    name: UserProvider
 server:
   port: 8780
-
 endpoints:
   enabled: true
   sensitive: false
-
-data:
-  test:
-    envName: dev
-    envconfig: 127.0.0.1:8780

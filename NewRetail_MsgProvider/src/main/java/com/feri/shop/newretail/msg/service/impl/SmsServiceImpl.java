@@ -1,5 +1,6 @@
 package com.feri.shop.newretail.msg.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.feri.shop.newretail.common.config.RedisKeyConfig;
 import com.feri.shop.newretail.common.config.SmsConfig;
 import com.feri.shop.newretail.common.util.JedisUtil;
@@ -7,8 +8,12 @@ import com.feri.shop.newretail.common.util.Random_Util;
 import com.feri.shop.newretail.common.util.StrUtil;
 import com.feri.shop.newretail.common.util.TimeUtil;
 import com.feri.shop.newretail.common.vo.R;
+import com.feri.shop.newretail.msg.config.RabbitMQConfig;
+import com.feri.shop.newretail.msg.model.VCode;
 import com.feri.shop.newretail.msg.service.SmsService;
 import com.feri.shop.newretail.msg.util.SmsUtil;
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
@@ -22,6 +27,9 @@ import java.util.Objects;
 @Service
 public class SmsServiceImpl implements SmsService {
     private JedisUtil jedisUtil=JedisUtil.getInstance();
+    @Autowired
+    private AmqpTemplate amqpTemplate;
+
     @Override
     public R sendValidateCode(String phone) {
         //1天只能发20次
@@ -61,7 +69,8 @@ public class SmsServiceImpl implements SmsService {
             jedisUtil.setExpire(RedisKeyConfig.SMSCODE+phone,code+"",600);
         }
         //验证码存储到Redis   有效期 10分钟
-        boolean issuccess= SmsUtil.sendMsg(phone,code);
+//        boolean issuccess= SmsUtil.sendMsg(phone,code);
+        amqpTemplate.convertAndSend(RabbitMQConfig.ename,"", JSON.toJSONString(new VCode(code,phone)));
         //更新各种Key
         //1天
         setKey(RedisKeyConfig.SMSKEYD1+ SmsConfig.APITEMID+":"+phone,TimeUtil.getLastSeconds());
@@ -71,7 +80,7 @@ public class SmsServiceImpl implements SmsService {
         setKey(RedisKeyConfig.SMSKEYM10+ SmsConfig.APITEMID+":"+phone,600);
         //1分钟
         setKey(RedisKeyConfig.SMSKEYM1+ SmsConfig.APITEMID+":"+phone,60);
-        return R.setResult(issuccess,"OK");
+        return R.setResult(true,"OK");
     }
 
     @Override
