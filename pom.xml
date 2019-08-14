@@ -25,6 +25,7 @@
         <module>NewRetail_UserProvider</module>
         <module>NewRetail_MsgProvider</module>
         <module>NewRetail_Api</module>
+        <module>NewRetail_LoginProvider</module>
     </modules>
 	<!--3、版本的声明-->
 	<properties>

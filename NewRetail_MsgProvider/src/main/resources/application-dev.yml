@@ -1,5 +1,6 @@
 spring:
   profiles: dev
+
   rabbitmq:
     host: 39.105.189.141
     port: 5672
