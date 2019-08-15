@@ -44,6 +44,7 @@ public class UserServiceImpl implements UserService {
             //校验手机号是否存在
             User user=userDao.selectByPhone(loginDto.getPhone());
             loginDto.setId(user.getId());
+            System.out.println("登录信息："+loginDto);
             if(user!=null){
                 //校验密码
                 if(Objects.equals(user.getPassword(), EncryptionUtil.AESEnc(KeyConfig.PASSKEY,loginDto.getPass()))){

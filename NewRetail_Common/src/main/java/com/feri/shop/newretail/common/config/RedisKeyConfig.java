@@ -26,7 +26,7 @@ public class RedisKeyConfig {
     public static final String LOGINFREEZE="user:freeze:";//后面追加手机号 key为手机号 值为初始时间 24小时
 
     //被迫下线 手机号 设备
-    public static final String LOGINFORCE="login:froce";// Hash类型 字段：令牌 值：设备号
+    public static final String LOGINFORCE="login:froce";// Hash类型 字段：令牌 值：设备号 没有有效期
 
 
 

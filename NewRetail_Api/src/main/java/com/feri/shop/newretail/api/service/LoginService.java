@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.servlet.http.HttpServletRequest;
 
-@FeignClient("")
+@FeignClient("LoginProvider")
 public interface LoginService {
     //校验是否被冻结
     @GetMapping("nr/login/checkfreeze/{phone}")
