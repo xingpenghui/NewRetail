@@ -51,7 +51,7 @@ public class R {
     }
     public static R setERROR(){
         R r=new R();
-        r.setCode(200);
+        r.setCode(400);
         r.setMsg("OK");
         r.setData(null);
         return r;

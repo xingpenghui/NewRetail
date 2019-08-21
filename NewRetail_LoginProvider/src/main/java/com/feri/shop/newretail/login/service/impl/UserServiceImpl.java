@@ -16,8 +16,6 @@ import com.feri.shop.newretail.login.dao.UserDao;
 import com.feri.shop.newretail.login.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.security.Key;
 import java.util.Objects;
 import java.util.Set;
 
@@ -154,11 +152,11 @@ public class UserServiceImpl implements UserService {
             //密码修改成功 当前的所有相关的信息全部失效
             Set<String> sets=jedisUtil.keys(RedisKeyConfig.USERTOKEN+phone+":*");
             for(String s:sets){
-                String t=jedisUtil.get(RedisKeyConfig.JWTTOKEN+jedisUtil.get(s));
-                //删除
+                String t=jedisUtil.get(s);
+                //删除相关个各种Key
                 jedisUtil.del(s,RedisKeyConfig.JWTTOKEN+t);
+                //删除挤掉的令牌
                 jedisUtil.hdel(RedisKeyConfig.LOGINFORCE,t);
             }
-
     }
 }

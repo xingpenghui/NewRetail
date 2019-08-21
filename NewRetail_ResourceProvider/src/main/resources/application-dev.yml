@@ -1,0 +1,12 @@
+spring:
+  profiles: dev
+
+  rabbitmq:
+    host: 39.105.189.141
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

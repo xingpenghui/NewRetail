@@ -13,6 +13,17 @@ RabbitMQ:
 账号：guest
 密码：guest
 
+OSS：
+地域节点：oss-cn-beijing.aliyuncs.com
+AppKeyID:LTAIhTvqTSmlmjeQ
+AppKey秘钥：X7X9w0Ck5GEIWgP9tl0Q6sgmFjQuMv
+
+
+Elasticsearch：
+主机：http://39.105.189.141:9200/
+可视化：http://39.105.189.141:9100/
+客户端：9300
+
 
 源码地址：
 https://github.com/xingpenghui/NewRetail

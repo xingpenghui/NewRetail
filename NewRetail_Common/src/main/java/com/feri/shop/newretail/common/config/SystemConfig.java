@@ -15,4 +15,7 @@ public class SystemConfig {
     //令牌的消息头的key
     public static final String HEARDTOKEN="nrusertoken";
 
+    //oss存储名称
+    public static  final String OSSBUCKET="zzjavanewretail";
+
 }

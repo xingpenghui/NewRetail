@@ -29,6 +29,16 @@ public class RedisKeyConfig {
     public static final String LOGINFORCE="login:froce";// Hash类型 字段：令牌 值：设备号 没有有效期
 
 
+    //排行榜的Key
+    public static final String TOPLOOK="goods:top:look";//记录商品的浏览排行榜
+
+    //Redis命令 2.8版本之后 新增的scan 可以实现非阻塞式查询  代替Keys
+
+
+    //Es搜索中心涉及到Key
+    public static final String ESGOODSADD="es:goods:add";//记录商品的间隔时间内的新增
+    public static final String ESGOODSUPDATE="es:goods:update";//记录商品的间隔时间内的修改
+    public static final String ESGOODSDEL="es:goods:del";//记录商品的间隔时间内的删除
 
 
 
