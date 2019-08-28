@@ -22,4 +22,9 @@ public class GoodsController {
     public R look(){
         return goodsService.queryLookTop();
     }
+
+    @GetMapping("/provider/goods/changrepertory.do")
+    public R change(int gskuid,int num){
+        return goodsService.changeRepertory(gskuid, num);
+    }
 }

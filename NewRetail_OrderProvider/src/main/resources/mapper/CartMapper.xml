@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.feri.shop.newretail.goods.dao.GoodsDao">
+
+
+    <insert id="insert">
+        insert into t_cart(uid,cdate) values(#{uid},now());
+    </insert>
+    <select id="selectByUid" resultType="com.feri.shop.newretail.dto.CartDto">
+        select ci.id,ci.num,g.name gname,g.imgurl gimgurl,gp.currprice price,gs.skujson from t_cartitem ci inner join t_cart c on ci.cid=c.id
+        inner join t_goods_skuspec gs on ci.gskuid=gs.id
+        INNER join t_goods_price gp on ci.gskuid=gp.gskuid
+        inner join t_goods g on gs.gid=g.id
+        where c.uid=#{uid} order by ci.ctime desc;
+    </select>
+    <select id="selectCid" resultType="int">
+        select id from t_cart where uid=#{uid}
+    </select>
+
+</mapper>

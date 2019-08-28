@@ -29,6 +29,7 @@
         <module>NewRetail_ResourceProvider</module>
         <module>NewRetail_GoodsProvider</module>
         <module>NewRetail_SearchProvider</module>
+        <module>NewRetail_OrderProvider</module>
     </modules>
 	<!--3、版本的声明-->
 	<properties>
@@ -69,6 +70,13 @@
 
 	<!--5、公共jar-->
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/com.redislabs/jrebloom -->
+		<dependency>
+			<groupId>com.redislabs</groupId>
+			<artifactId>jrebloom</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -103,6 +111,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 <!--
 	<build>

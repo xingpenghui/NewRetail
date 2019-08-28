@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.feri.shop.newretail.goods.dao.GoodsDao">
+
+    <insert id="insert">
+        insert into t_cartitem(cid,gskuid,cartprice,num,ctime ) values(#{cid},#{gskuid},#{cartprice},#{num},now())
+    </insert>
+    <update id="updateNum">
+        update t_cartitem set num=num+#{n} where id=#{id};
+    </update>
+    <delete id="delById">
+        delete from t_cartitem where id=#{id}
+    </delete>
+    <select id="selectGskuid" resultType="com.feri.shop.newretail.entity.cart.CartItem">
+        select ci.* from t_cartitem ci inner join t_cart c on ci.cid=c.id where ci.gskuid=#{gskuid} and c.uid=#{uid] limit 1;
+    </select>
+
+</mapper>

@@ -1,7 +1,7 @@
 package com.feri.shop.newretail.common.util;
 
 /**
- * twitter的一个id生成算法
+ * twitter的一个id生成算法  雪花算法
 
 Twitter-Snowflake算法产生的背景相当简单，为了满足Twitter每秒上万条消息的请求，
 每条消息都必须分配一条唯一的id，这些id还需要一些大致的顺序（方便客户端排序），

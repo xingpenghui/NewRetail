@@ -41,6 +41,9 @@ public class RedisKeyConfig {
     public static final String ESGOODSDEL="es:goods:del";//记录商品的间隔时间内的删除
 
 
+    //购物车相关信息
+    public static final String CART="cart:";//手机号 值为购物车id
+
 
 
 

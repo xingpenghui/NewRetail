@@ -10,4 +10,5 @@ import com.feri.shop.newretail.common.vo.R;
  */
 public interface GoodsService {
     R queryLookTop();
+    R changeRepertory(int gskuid,int num);
 }
